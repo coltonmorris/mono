@@ -6,10 +6,22 @@ git_repository(
   name = "io_bazel_rules_go",
   commit = "6bee898391a42971289a7989c0f459ab5a4a84dd",  # master as of May 10th, 2018
   remote = "https://github.com/bazelbuild/rules_go.git",
-)
+  )
+
+http_archive(
+  name = "bazel_gazelle",
+  sha256 = "ddedc7aaeb61f2654d7d7d4fd7940052ea992ccdb031b8f9797ed143ac7e8d43",
+  url = "https://github.com/bazelbuild/bazel-gazelle/releases/download/0.12.0/bazel-gazelle-0.12.0.tar.gz",
+  )
+
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
-go_rules_dependencies()
+
 go_register_toolchains()
+
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
+
+gazelle_dependencies()
+
 
 http_archive(
   name = "io_bazel_rules_webtesting",
@@ -22,6 +34,47 @@ load("@io_bazel_rules_webtesting//web:repositories.bzl", "browser_repositories",
 web_test_repositories()
 browser_repositories(
   chromium = True,
+)
+
+go_repository(
+  name = "com_github_googleapis_gax_go",
+  commit = "de2cc08e690b99dd3f7d19937d80d3d54e04682f",
+  importpath = "github.com/googleapis/gax-go",
+  )
+
+go_repository(
+  name = "com_github_sirupsen_logrus",
+  commit = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc",
+  importpath = "github.com/sirupsen/logrus",
+  )
+
+go_repository(
+  name = "com_google_cloud_go",
+  commit = "5c31045bc3f4855c97f997a1940dfefc1598aa2d",
+  importpath = "cloud.google.com/go",
+  )
+
+go_rules_dependencies()
+
+## Protos
+new_http_archive(
+  name = "com_github_googleapis_googleapis",
+  build_file_content = """
+  package(default_visibility = ["//visibility:public"])
+  proto_library(
+    name = "annotations_proto",
+    srcs = [
+      "google/api/http.proto",
+      "google/api/annotations.proto",
+      ],
+    visibility = ["//visibility:public"],
+    deps = [
+      "@com_google_protobuf//:descriptor_proto",
+      ],
+    )
+  """,
+  strip_prefix = "googleapis-d084748b9243368c1a8cc12f4d3a0c84e8407e46/",
+  urls = ["https://github.com/googleapis/googleapis/archive/d084748b9243368c1a8cc12f4d3a0c84e8407e46.zip"],
 )
 
 ### Node

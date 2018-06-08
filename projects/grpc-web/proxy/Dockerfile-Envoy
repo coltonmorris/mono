@@ -1,0 +1,8 @@
+FROM envoyproxy/envoy-alpine
+
+RUN apk update
+RUN apk add ngrep
+
+COPY envoy.yaml /etc/envoy/envoy.yaml
+
+CMD ["envoy", "-l","trace", "-c","/etc/envoy/envoy.yaml"]

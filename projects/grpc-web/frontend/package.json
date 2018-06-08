@@ -1,0 +1,25 @@
+{
+  "name": "newTest",
+  "version": "1.0.0",
+  "description": "1. `npm run generate-server` for the grpc server stubs  2. `npm run generate-grpcClient` for the grpc client stubs 2. `make build-linux` for the docker container in the compose step 3. `docker-compose up --build` 4. Navigate to `localhost:8000`",
+  "main": "index.js",
+  "scripts": {
+    "build:proto": "./protogen.sh",
+    "webpack-dev": "cd ts && webpack-dev-server --colors --watch --hot --inline --port 8081 --host 0.0.0.0 --output-public-path=http://localhost:8081/build/",
+    "start": "npm run build:proto && tsc && concurrently --kill-others \"go run go/exampleserver/exampleserver.go\" \"npm run webpack-dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/google-protobuf": "^3.2.7",
+    "concurrently": "^3.5.1",
+    "grpc-web-client": "^0.5.0",
+    "ts-loader": "^4.2.0",
+    "ts-protoc-gen": "^0.5.2",
+    "typescript": "^2.8.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
+  }
+}
