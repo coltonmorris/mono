@@ -21,3 +21,9 @@ go_library(
     importpath = "github.com/coltonmorris/mono/projects/grpc-web/proto",
     visibility = ["//visibility:public"],
 )
+
+proto_library(
+    name = "proto_proto",
+    srcs = ["book_service.proto"],
+    visibility = ["//visibility:public"],
+)

@@ -1,7 +1,7 @@
 filegroup(
-  name = "build",
-  srcs = [
-    "//projects/grpc-web/proxy:start_envoy",
-    "//projects/grpc-web/backend:backend",
-  ],
+    name = "build",
+    srcs = [
+        "//projects/grpc-web/backend",
+        "//projects/grpc-web/proxy:start_envoy",
+    ],
 )

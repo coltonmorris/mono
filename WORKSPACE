@@ -36,24 +36,6 @@ browser_repositories(
   chromium = True,
 )
 
-go_repository(
-  name = "com_github_googleapis_gax_go",
-  commit = "de2cc08e690b99dd3f7d19937d80d3d54e04682f",
-  importpath = "github.com/googleapis/gax-go",
-  )
-
-go_repository(
-  name = "com_github_sirupsen_logrus",
-  commit = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc",
-  importpath = "github.com/sirupsen/logrus",
-  )
-
-go_repository(
-  name = "com_google_cloud_go",
-  commit = "5c31045bc3f4855c97f997a1940dfefc1598aa2d",
-  importpath = "cloud.google.com/go",
-  )
-
 go_rules_dependencies()
 
 ## Protos
