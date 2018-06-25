@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build/dist",
     "alwaysStrict": true,
     "sourceMap": true,
     "target": "es5",
@@ -11,7 +13,17 @@
     "noFallthroughCasesInSwitch": true,
     "noEmitOnError": true
   },
-  "include": [
-    "ts/src/**/*"
+  "paths": {
+      "@proto/*": [
+        "src/external/projects/grpc-web/proto/*"
+      ],
+      "@app/*": [
+        "*"
+      ]
+  },
+  "exclude": [
+    "_proto",
+    "node_modules",
+    "build"
   ]
 }

@@ -59,6 +59,7 @@ new_http_archive(
   urls = ["https://github.com/googleapis/googleapis/archive/d084748b9243368c1a8cc12f4d3a0c84e8407e46.zip"],
 )
 
+
 ### Node
 git_repository(
   name = "build_bazel_rules_nodejs",
@@ -67,12 +68,28 @@ git_repository(
 )
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 node_repositories(package_json = ["//projects/blog:package.json"])
+node_repositories(package_json = ["//projects/grpc-web/frontend:package.json"])
 
 yarn_install(
   name = "deps",
+  package_json = "//projects/grpc-web/frontend:package.json",
+  yarn_lock = "//projects/grpc-web/frontend:yarn.lock",
+)
+yarn_install(
+  name = "blog",
   package_json = "//projects/blog:package.json",
   yarn_lock = "//projects/blog:yarn.lock",
 )
+
+git_repository(
+  name = "ts_protoc_gen",
+  remote = "https://github.com/improbable-eng/ts-protoc-gen",
+  commit = "53aa49ccb3fa7832934ff1cbf86ec62df1cde4cd",
+)
+
+load("@ts_protoc_gen//:defs.bzl", "typescript_proto_dependencies")
+typescript_proto_dependencies()
+
 
 ### Typescript
 git_repository(
