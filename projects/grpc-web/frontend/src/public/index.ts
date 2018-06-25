@@ -23,8 +23,6 @@ function getBook() {
   });
 }
 
-getBook();
-
 function queryBooks() {
   const queryBooksRequest = new QueryBooksRequest();
   queryBooksRequest.setAuthorPrefix("Geor");
@@ -45,9 +43,12 @@ function queryBooks() {
 }
 
 console.log('start');
-setInterval(function() { console.log("hi") }, 2000);
+setInterval(function() {
+  console.log("Executing grpc request...");
+  getBook();
+} , 2000);
 
 var ele = document.getElementById("app")
 if (ele && ele.innerHTML) {
-  ele.innerHTML = "Colton was here";
+  ele.innerHTML = "Check the console";
 }

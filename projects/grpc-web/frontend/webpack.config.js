@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     main: [
-      path.resolve(__dirname, 'src/index.ts'),
+      path.resolve(__dirname, 'src/public/index.ts'),
     ],
   },
 
@@ -107,5 +107,12 @@ module.exports = {
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     symlinks: false,
-  }
+  },
+
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: path.resolve(__dirname, 'src/public/index.html'),
+      filename: 'index.html',
+    }),
+  ]
 };

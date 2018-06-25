@@ -62,6 +62,7 @@ var books = []*library.Book{
 }
 
 func (s *bookService) GetBook(ctx context.Context, bookQuery *library.GetBookRequest) (*library.Book, error) {
+  fmt.Println("In get book"); 
   grpc.SendHeader(ctx, metadata.Pairs("Pre-Response-Metadata", "Is-sent-as-headers-unary"))
   grpc.SetTrailer(ctx, metadata.Pairs("Post-Response-Metadata", "Is-sent-as-trailers-unary"))
 
@@ -75,6 +76,7 @@ func (s *bookService) GetBook(ctx context.Context, bookQuery *library.GetBookReq
 }
 
 func (s *bookService) QueryBooks(bookQuery *library.QueryBooksRequest, stream library.BookService_QueryBooksServer) error {
+  fmt.Println("In query book"); 
   stream.SendHeader(metadata.Pairs("Pre-Response-Metadata", "Is-sent-as-headers-stream"))
   for _, book := range books {
     if strings.HasPrefix(book.Author, bookQuery.AuthorPrefix) {

@@ -23,13 +23,13 @@ go_library(
 )
 
 proto_library(
-    name = "proto",
+    name = "proto_proto",
     srcs = ["book_service.proto"],
 )
 
 typescript_proto_library(
   name = "ts_proto",
-  proto = ":proto",
+  proto = ":proto_proto",
   remove_dependencies = [
     "google_api_annotations_pb",
     # "options_pb",
