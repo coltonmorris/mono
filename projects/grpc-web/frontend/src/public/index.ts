@@ -9,6 +9,7 @@ function getBook() {
   getBookRequest.setIsbn(60929871);
   grpc.unary(BookService.GetBook, {
     request: getBookRequest,
+    metadata: new grpc.Metadata({"Authorization": "Bearer teeeeeest"}),
     host: host,
     onEnd: res => {
       const { status, statusMessage, headers, message, trailers } = res;
@@ -28,6 +29,7 @@ function queryBooks() {
   queryBooksRequest.setAuthorPrefix("Geor");
   const client = grpc.client(BookService.QueryBooks, {
     host: host,
+    metadata: new grpc.Metadata({"Authorization": "Bearer teeeeeest"}),
   });
   client.onHeaders((headers: grpc.Metadata) => {
     console.log("queryBooks.onHeaders", headers);
