@@ -38,7 +38,7 @@ static_resources:
                   cluster: local_service_grpc
                   cors:
                       allow_origin: ["*"]
-                      allow_headers: content-type,x-grpc-web
+                      allow_headers: content-type,x-grpc-web,authorization
             response_headers_to_add:
               header:
                 key: Access-Control-Expose-Headers

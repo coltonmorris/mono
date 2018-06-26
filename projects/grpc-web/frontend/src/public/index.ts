@@ -9,7 +9,8 @@ function getBook() {
   getBookRequest.setIsbn(60929871);
   grpc.unary(BookService.GetBook, {
     request: getBookRequest,
-    metadata: new grpc.Metadata({"Authorization": "Bearer teeeeeest"}),
+    metadata: new grpc.Metadata({"x-grpc-web":"1", "authorization":"Bearer teest"}),
+    // metadata: new grpc.Metadata({"x-grpc-web":"1","Authorization": "Bearer teeeeeest"}),
     host: host,
     onEnd: res => {
       const { status, statusMessage, headers, message, trailers } = res;
