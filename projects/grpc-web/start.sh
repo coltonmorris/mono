@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-cd frontend
-yarn
-yarn start &
+cd proxy
+./start.sh
 cd ..
 
-bazel run //projects/grpc-web/backend:backend
-bazel run //projects/grpc-web/proxy:start_envoy
+cd frontend
+yarn
+yarn start
+cd ..

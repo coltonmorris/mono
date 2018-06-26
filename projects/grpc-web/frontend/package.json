@@ -30,7 +30,7 @@
   },
   "scripts": {
     "webpack-start": "webpack-dev-server --config=./webpack.config.js -d",
-    "start": "npm run copy-bazel && concurrently --kill-others \"npm run webpack-start\"",
+    "start": "npm run copy-bazel && concurrently --kill-others \"bazel run //projects/grpc-web/backend:backend\" \"npm run webpack-start\"",
     "copy-bazel": "./copy_bazel_files.sh"
   }
 }
