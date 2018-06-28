@@ -99,3 +99,104 @@ git_repository(
 )
 load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
 ts_setup_workspace()
+
+
+# local_repository(
+#   name = "rxjs",
+#   path = "projects/grpc-web/frontend/node_modules/listr/node_modules/rxjs/src",
+#   )
+# local_repository(
+#   name = "rxjs_2",
+#   path = "projects/grpc-web/frontend/node_modules/rxjs/src",
+# )
+# local_repository(
+#   name = "ts_protoc_gen_exclude",
+#   path = "projects/grpc-web/frontend/node_modules/ts-protoc-gen/bin",
+# )
+
+## Gorules
+go_repository(
+  name = "com_github_gocolly_colly",
+  commit = "6a6c7848ba3d0690ed9b77a68626f3e0e45493f3",
+  importpath = "github.com/gocolly/colly",
+)
+
+go_repository(
+  name = "org_golang_google_appengine",
+  commit = "962cbd1200af94a5a35ba8d512e9f91271b4d01a",
+  importpath = "google.golang.org/appengine",
+  remote = "https://github.com/golang/appengine",
+  vcs = "git",
+)
+
+go_repository(
+  name = "com_github_saintfish_chardet",
+  commit = "3af4cd4741ca4f3eb0c407c034571a6fb0ea529c",
+  importpath = "github.com/saintfish/chardet",
+)
+
+go_repository(
+  name = "com_github_puerkitobio_goquery",
+  commit = "dc2ec5c7ca4d9aae063b79b9f581dd3ea6afd2b2",
+  importpath = "github.com/PuerkitoBio/goquery",
+)
+
+go_repository(
+  name = "com_github_kennygrant_sanitize",
+  commit = "2e6820834a1f36c626bf19a253b7d3cc060e9b8b",
+  importpath = "github.com/kennygrant/sanitize",
+)
+
+go_repository(
+  name = "com_github_antchfx_xmlquery",
+  commit = "9188d8442369f50d972011092e34175d53e10476",
+  importpath = "github.com/antchfx/xmlquery",
+)
+
+go_repository(
+  name = "com_github_temoto_robotstxt",
+  commit = "e39884099e559e9744ba546c59b12f995ab5b228",
+  importpath = "github.com/temoto/robotstxt",
+)
+
+go_repository(
+  name = "com_github_gobwas_glob",
+  commit = "5ccd90ef52e1e632236f7326478d4faa74f99438",
+  importpath = "github.com/gobwas/glob",
+)
+
+go_repository(
+  name = "com_github_antchfx_xpath",
+  commit = "077bca4d2caaf391ee780136adae00f59153dcd2",
+  importpath = "github.com/antchfx/xpath",
+)
+
+go_repository(
+  name = "com_github_antchfx_xquery",
+  commit = "ad5b8c7a47b007a1cdaf6616ece1f71e94c189a6",
+  importpath = "github.com/antchfx/xquery",
+)
+
+go_repository(
+  name = "com_github_antchfx_htmlquery",
+  commit = "b4407197cfe83ed32ff00763f84809f65b6417c1",
+  importpath = "github.com/antchfx/htmlquery",
+)
+
+go_repository(
+  name = "com_github_temoto_robotstxt",
+  commit = "9e4646fa705336d5b2fa9dddfafbe0a1a965acd7",
+  importpath = "github.com/temoto/robotstxt",
+)
+
+go_repository(
+  name = "com_github_andybalholm_cascadia",
+  commit = "901648c87902174f774fac311d7f176f8647bdaa",
+  importpath = "github.com/andybalholm/cascadia",
+)
+
+go_repository(
+  name = "com_github_manifoldco_promptui",
+  commit = "3dd80c00b7cb0bc779d1c204da6f3ae0fa6a4eee",
+  importpath = "github.com/manifoldco/promptui",
+)

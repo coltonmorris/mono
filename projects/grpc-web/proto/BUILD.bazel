@@ -28,10 +28,10 @@ proto_library(
 )
 
 typescript_proto_library(
-  name = "ts_proto",
-  proto = ":proto_proto",
-  remove_dependencies = [
-    "google_api_annotations_pb",
-    # "options_pb",
-  ],
+    name = "ts_proto",
+    proto = ":proto_proto",
+    remove_dependencies = [
+        "google_api_annotations_pb",
+        # "options_pb",
+    ],
 )

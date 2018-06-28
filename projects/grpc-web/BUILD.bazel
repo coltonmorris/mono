@@ -5,12 +5,12 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary", "nodejs_test")
 filegroup(
     name = "build",
     srcs = [
-      "//projects/grpc-web/backend:backend",
-      "//projects/grpc-web/proxy:start_envoy",
+        "//projects/grpc-web/backend",
+        "//projects/grpc-web/proxy:start_envoy",
     ],
 )
 
 sh_binary(
-  name = "start",
-  srcs = ["start.sh"],
+    name = "start",
+    srcs = ["start.sh"],
 )
