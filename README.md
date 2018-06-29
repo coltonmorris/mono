@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/coltonmorris/mono.svg?branch=master)](https://travis-ci.com/coltonmorris/mono)
 # My Workspace
 
 ## Project Ideas
