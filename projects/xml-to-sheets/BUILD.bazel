@@ -9,7 +9,7 @@ nodejs_binary(
   data = [
     "main.js",
     "input.xml",
-    "service-account-creds.json",
+    "output.csv",
   ],
   entry_point = "mono/projects/xml-to-sheets/main.js"
 )

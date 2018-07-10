@@ -5,6 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "async": "^2.6.1",
+    "bluebird": "^3.5.1",
     "google-spreadsheet": "^2.0.5",
     "xml2js": "^0.4.19",
     "xmldoc": "^1.1.0"
