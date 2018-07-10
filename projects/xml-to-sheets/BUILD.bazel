@@ -1,0 +1,15 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+
+
+nodejs_binary(
+  name = "main",
+  node_modules = "@xml//:node_modules",
+  data = [
+    "main.js",
+    "input.xml",
+    "service-account-creds.json",
+  ],
+  entry_point = "mono/projects/xml-to-sheets/main.js"
+)

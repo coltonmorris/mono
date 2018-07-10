@@ -1,0 +1,12 @@
+{
+  "name": "xml-to-sheets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "async": "^2.6.1",
+    "google-spreadsheet": "^2.0.5",
+    "xml2js": "^0.4.19",
+    "xmldoc": "^1.1.0"
+  }
+}

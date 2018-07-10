@@ -68,6 +68,7 @@ git_repository(
 )
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 node_repositories(package_json = ["//projects/blog:package.json"])
+node_repositories(package_json = ["//projects/xml-to-sheets:package.json"])
 node_repositories(package_json = ["//projects/grpc-web/frontend:package.json"])
 
 yarn_install(
@@ -79,6 +80,11 @@ yarn_install(
   name = "blog",
   package_json = "//projects/blog:package.json",
   yarn_lock = "//projects/blog:yarn.lock",
+)
+yarn_install(
+  name = "xml",
+  package_json = "//projects/xml-to-sheets:package.json",
+  yarn_lock = "//projects/xml-to-sheets:yarn.lock",
 )
 
 git_repository(
