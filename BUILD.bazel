@@ -7,9 +7,18 @@ gazelle(
     prefix = "github.com/coltonmorris/mono",
 )
 
+
 genrule(
     name = "placeholder",
     srcs = [],
     outs = ["placeholder.txt"],
     cmd = "echo 'hi' > \"$@\"",
+)
+
+exports_files(
+  [
+    "tsconfig.json",
+    "package.json",
+    "yarn.lock",
+    ],
 )

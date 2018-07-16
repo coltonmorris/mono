@@ -1,0 +1,14 @@
+{
+  "name": "mono",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/coltonmorris/mono",
+  "author": "colton <colton.morris@tcnbroadcasting.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/google-protobuf": "^3.2.7",
+    "@types/node": "^10.5.2",
+    "ts-protoc-gen": "^0.7.3",
+    "typescript": "^2.9.2"
+  }
+}

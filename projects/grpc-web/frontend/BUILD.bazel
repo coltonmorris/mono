@@ -1,9 +1,22 @@
 package(default_visibility = ["//visibility:public"])
 
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
+
+
 exports_files(
     [
         "tsconfig.json",
         "package.json",
         "yarn.lock",
     ],
+)
+
+ts_library(
+  name = "build",
+  node_modules = "@deps//:node_modules",
+  srcs = glob([
+    "src/**/*.ts*",
+  ]),
+  deps = [],
+  tsconfig = ":tsconfig.json",
 )

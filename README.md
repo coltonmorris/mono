@@ -4,3 +4,6 @@
 ## Project Ideas
 + Photo and Video library that uses google apis
 + Bring in projects I've made
+
+## TODO
++ use a single tsconfig at the root

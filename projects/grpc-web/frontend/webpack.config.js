@@ -102,6 +102,7 @@ module.exports = {
   resolve: {
     modules: [path.resolve(__dirname, 'node_modules')],
     alias: {
+      'mono': path.resolve(__dirname, '../../../'),
       '@proto': path.resolve(__dirname, 'src/external/projects/grpc-web/proto/'),
       '@app': path.resolve(__dirname, '.'),
     },

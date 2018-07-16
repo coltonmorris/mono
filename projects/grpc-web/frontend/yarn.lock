@@ -2542,7 +2542,7 @@ globby@^8.0.0, globby@^8.0.1:
     pify "^3.0.0"
     slash "^1.0.0"
 
-google-protobuf@^3.2.0:
+google-protobuf@^3.5.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/google-protobuf/-/google-protobuf-3.6.0.tgz#e2bafb00c20a8734174d8f89e0a842709e2ceed0"
 
@@ -5712,11 +5712,11 @@ ts-loader@4.3.1:
     micromatch "^3.1.4"
     semver "^5.0.1"
 
-ts-protoc-gen@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/ts-protoc-gen/-/ts-protoc-gen-0.5.2.tgz#ef5ae92d4562141fe47ebfdcd53e8eace9a35355"
+ts-protoc-gen@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/ts-protoc-gen/-/ts-protoc-gen-0.7.3.tgz#bddbf1b9b053df1c6481c00ddd01feb4bc5a50f9"
   dependencies:
-    google-protobuf "^3.2.0"
+    google-protobuf "^3.5.0"
 
 tslib@^1.9.0:
   version "1.9.3"

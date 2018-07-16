@@ -67,12 +67,18 @@ git_repository(
   tag = "0.9.1",
 )
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
+node_repositories(package_json = ["//:package.json"])
 node_repositories(package_json = ["//projects/blog:package.json"])
 node_repositories(package_json = ["//projects/xml-to-sheets:package.json"])
 node_repositories(package_json = ["//projects/grpc-web/frontend:package.json"])
 
 yarn_install(
   name = "deps",
+  package_json = "//:package.json",
+  yarn_lock = "//:yarn.lock",
+)
+yarn_install(
+  name = "frontend",
   package_json = "//projects/grpc-web/frontend:package.json",
   yarn_lock = "//projects/grpc-web/frontend:yarn.lock",
 )
@@ -101,20 +107,20 @@ typescript_proto_dependencies()
 git_repository(
   name = "build_bazel_rules_typescript",
   remote = "https://github.com/bazelbuild/rules_typescript.git",
-  tag = "0.14.0",
+  tag = "0.15.1",
 )
 load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
 ts_setup_workspace()
 
 
-# local_repository(
-#   name = "rxjs",
-#   path = "projects/grpc-web/frontend/node_modules/listr/node_modules/rxjs/src",
-#   )
-# local_repository(
-#   name = "rxjs_2",
-#   path = "projects/grpc-web/frontend/node_modules/rxjs/src",
-# )
+local_repository(
+  name = "rxjs",
+  path = "projects/grpc-web/frontend/node_modules/listr/node_modules/rxjs/src",
+  )
+local_repository(
+  name = "rxjs_2",
+  path = "projects/grpc-web/frontend/node_modules/rxjs/src",
+)
 # local_repository(
 #   name = "ts_protoc_gen_exclude",
 #   path = "projects/grpc-web/frontend/node_modules/ts-protoc-gen/bin",

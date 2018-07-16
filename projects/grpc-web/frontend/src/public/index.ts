@@ -1,6 +1,6 @@
 import {grpc} from "grpc-web-client";
-import {BookService} from "@proto/book_service_pb_service";
-import {QueryBooksRequest, Book, GetBookRequest} from "@proto/book_service_pb";
+import {BookService} from "mono/projects/grpc-web/frontend/src/external/projects/grpc-web/proto/book_service_pb_service";
+import {QueryBooksRequest, Book, GetBookRequest} from "mono/projects/grpc-web/frontend/src/external/projects/grpc-web/proto/book_service_pb";
 
 const host = "http://localhost:9090";
 
@@ -29,7 +29,6 @@ function queryBooks() {
   queryBooksRequest.setAuthorPrefix("Geor");
   const client = grpc.client(BookService.QueryBooks, {
     host: host,
-    metadata: new grpc.Metadata({"Authorization": "Bearer teeeeeest"}),
   });
   client.onHeaders((headers: grpc.Metadata) => {
     console.log("queryBooks.onHeaders", headers);
@@ -40,7 +39,7 @@ function queryBooks() {
   client.onEnd((code: grpc.Code, msg: string, trailers: grpc.Metadata) => {
     console.log("queryBooks.onEnd", code, msg, trailers);
   });
-  client.start();
+  client.start(new grpc.Metadata({"Authorization": "Bearer testttting"}));
   client.send(queryBooksRequest);
 }
 

@@ -19,13 +19,11 @@
     "noEmitOnError": true,
     "paths": {
         "mono/*": [
-          "../../../*"
+          "*"
         ]
     }
   },
-  "exclude": [
-    "_proto",
-    "node_modules",
-    "build"
+  "include": [
+    "projects/grpc-web/frontend/src/**/*.ts*"
   ]
 }
