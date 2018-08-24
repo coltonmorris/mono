@@ -70,5 +70,5 @@ function getWords() {
   })
 }
 
-// recursively get words
+// infinitely get words until an explosion
 getWords()
