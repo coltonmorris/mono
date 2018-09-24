@@ -6,9 +6,21 @@
   "author": "colton <colton.morris@tcnbroadcasting.com>",
   "license": "MIT",
   "devDependencies": {
+    "@angular/compiler": "6.1.8",
+    "@angular/compiler-cli": "6.1.8",
+    "@angular/core": "6.1.8",
+    "@bazel/ibazel": "0.5.0",
+    "@bazel/typescript": "0.17.0",
     "@types/google-protobuf": "^3.2.7",
-    "@types/node": "^10.5.2",
+    "@types/jasmine": "2.8.8",
+    "@types/node": "6.0.117",
     "ts-protoc-gen": "^0.7.3",
-    "typescript": "^2.9.2"
+    "typescript": "2.9.2"
+  },
+  "dependencies": {
+    "@ngrx/store": "6.1.0",
+    "rxjs": "6.3.2",
+    "systemjs": "0.21.5",
+    "tslib": "1.9.3"
   }
 }

@@ -8,6 +8,7 @@
       "es6",
       "dom"
     ],
+    "experimentalDecorators": true,
     "alwaysStrict": true,
     "sourceMap": true,
     "removeComments": true,
@@ -24,6 +25,12 @@
     }
   },
   "include": [
-    "projects/grpc-web/frontend/src/**/*.ts*"
+    "projects/grpc-web/frontend/src/**/*.ts*",
+    "node_modules/@ngrx/**/*"
+  ],
+  "exclude": [
+    "node_modules/@ngrx/store/migrations/**",
+    "node_modules/@ngrx/store/schematics/**",
+    "node_modules/@ngrx/store/schematics-core/**"
   ]
 }

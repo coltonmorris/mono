@@ -64,10 +64,15 @@ new_http_archive(
 git_repository(
   name = "build_bazel_rules_nodejs",
   remote = "https://github.com/bazelbuild/rules_nodejs.git",
-  tag = "0.9.1",
+  tag = "0.13.1",
 )
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
-node_repositories(package_json = ["//:package.json"])
+node_repositories(
+  package_json = ["//:package.json"],
+  preserve_symlinks = True,
+  node_version = "10.9.0",
+  yarn_version = "1.9.2",
+)
 node_repositories(package_json = ["//projects/blog:package.json"])
 node_repositories(package_json = ["//projects/xml-to-sheets:package.json"])
 node_repositories(package_json = ["//projects/grpc-web/frontend:package.json"])
@@ -93,6 +98,39 @@ yarn_install(
   yarn_lock = "//projects/xml-to-sheets:yarn.lock",
 )
 
+# Runs the Sass CSS preprocessor
+http_archive(
+  name = "io_bazel_rules_sass",
+  url = "https://github.com/bazelbuild/rules_sass/archive/1.11.0.zip",
+  strip_prefix = "rules_sass-1.11.0",
+  sha256 = "dbe9fb97d5a7833b2a733eebc78c9c1e3880f676ac8af16e58ccf2139cbcad03",
+  )
+
+# The @angular repo contains rule for building Angular applications
+http_archive(
+  name = "angular",
+  url = "https://github.com/angular/angular/archive/6.1.8.zip",
+  strip_prefix = "angular-6.1.8",
+  sha256 = "5ac6694f7c694afe34767aff4a0dd0408e25b0493cea675c2bb075c123adc46a",
+)
+
+### Typescript
+local_repository(
+  name = "build_bazel_rules_typescript",
+  path = "node_modules/@bazel/typescript",
+)
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace", "check_rules_typescript_version")
+
+ts_setup_workspace()
+# Enforce that the version of @bazel/typescript installed by npm is compatible with the rules.
+# 0.16.0: tsc_wrapped uses user's typescript version & check_rules_typescript_version
+check_rules_typescript_version("0.16.0")
+
+load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
+
+sass_repositories()
+
 git_repository(
   name = "ts_protoc_gen",
   remote = "https://github.com/improbable-eng/ts-protoc-gen",
@@ -103,18 +141,18 @@ load("@ts_protoc_gen//:defs.bzl", "typescript_proto_dependencies")
 typescript_proto_dependencies()
 
 
-### Typescript
-git_repository(
-  name = "build_bazel_rules_typescript",
-  remote = "https://github.com/bazelbuild/rules_typescript.git",
-  tag = "0.15.1",
-)
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
-ts_setup_workspace()
+load("@build_bazel_rules_typescript//:package.bzl", "rules_typescript_dependencies")
+rules_typescript_dependencies()
 
 
+# The @rxjs repo contains targets for building rxjs with bazel
 local_repository(
   name = "rxjs",
+  path = "node_modules/rxjs/src",
+)
+
+local_repository(
+  name = "rxjs_1",
   path = "projects/grpc-web/frontend/node_modules/listr/node_modules/rxjs/src",
   )
 local_repository(
@@ -125,6 +163,10 @@ local_repository(
 #   name = "ts_protoc_gen_exclude",
 #   path = "projects/grpc-web/frontend/node_modules/ts-protoc-gen/bin",
 # )
+
+load("@angular//:index.bzl", "ng_setup_workspace")
+
+ng_setup_workspace()
 
 ## Gorules
 go_repository(

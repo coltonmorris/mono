@@ -1,0 +1,24 @@
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
+load("@angular//:index.bzl", "protractor_web_test_suite")
+
+ts_library(
+    name = "e2e",
+    testonly = 1,
+    srcs = glob(["src/*.ts"]),
+)
+
+protractor_web_test_suite(
+    name = "prodserver_test",
+    data = ["@angular//packages/bazel/src/protractor/utils"],
+    on_prepare = ":protractor.on-prepare.js",
+    server = "//projects/angular-example/src:prodserver",
+    deps = [":e2e"],
+)
+
+protractor_web_test_suite(
+    name = "devserver_test",
+    data = ["@angular//packages/bazel/src/protractor/utils"],
+    on_prepare = ":protractor.on-prepare.js",
+    server = "//projects/angular-example/src:devserver",
+    deps = [":e2e"],
+)
