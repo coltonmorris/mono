@@ -9,10 +9,10 @@ ng_module(
     assets = [
         ":app.component.html",
     ],
-    tsconfig = ":tsconfig.json",
+    tsconfig = "//:tsconfig.json",
     deps = [
         "//projects/angular-example/src/hello-world",
-        # "//projects/angular-example/src/todos",
+        "//projects/angular-example/src/todos",
         "@angular//packages/core",
         "@angular//packages/router",
     ],
@@ -27,7 +27,7 @@ ts_devserver(
     # serve these files rooted at /
     additional_root_paths = [
         "angular_bazel_example/node_modules/zone.js/dist",
-        # "angular_bazel_example/node_modules/tslib",
+        "angular_bazel_example/node_modules/tslib",
         "angular_bazel_example/node_modules/@ngrx/store/bundles",
     ],
     # Start from the development version of the main
@@ -40,7 +40,7 @@ ts_devserver(
     # Serve these files in addition to the JavaScript bundle
     static_files = [
         "//:node_modules/zone.js/dist/zone.min.js",
-        # "//:node_modules/tslib/tslib.js",
+        "//:node_modules/tslib/tslib.js",
         "//:node_modules/@ngrx/store/bundles/store.umd.min.js",
         "index.html",
     ],
@@ -59,7 +59,7 @@ rollup_bundle(
     # analyzing the Angular sources.
     additional_entry_points = [
         "projects/angular-example/src/hello-world/hello-world.module.ngfactory",
-        # "projects/angular-example/src/todos/todos.module.ngfactory",
+        "projects/angular-example/src/todos/todos.module.ngfactory",
     ],
     entry_point = "projects/angular-example/src/main",
     node_modules = "//:node_modules",

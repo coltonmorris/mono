@@ -6,7 +6,8 @@
     "lib": [
       "es2015",
       "es6",
-      "dom"
+      "dom",
+      "es5"
     ],
     "experimentalDecorators": true,
     "alwaysStrict": true,
@@ -26,11 +27,6 @@
   },
   "include": [
     "projects/grpc-web/frontend/src/**/*.ts*",
-    "node_modules/@ngrx/**/*"
-  ],
-  "exclude": [
-    "node_modules/@ngrx/store/migrations/**",
-    "node_modules/@ngrx/store/schematics/**",
-    "node_modules/@ngrx/store/schematics-core/**"
+    "projects/spotify-visualizer/**/*.ts*"
   ]
 }

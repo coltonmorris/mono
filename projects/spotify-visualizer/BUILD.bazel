@@ -1,0 +1,28 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_devserver", "ts_library")
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+
+
+ts_library(
+  name = "src",
+  node_modules = "//:node_modules",
+  tsconfig = "//:tsconfig.json",
+  srcs = glob([
+    "**/*.ts*",
+  ]),
+  deps = [
+    # "//bazel/protoc-gen-state/example/fullApp/proto:basic",
+    # "//bazel/protoc-gen-state/example/fullApp/proto/basic:ts_protos",
+  ],
+)
+
+nodejs_binary(
+  name = "run",
+  node_modules = "//:node_modules",
+  data = [
+    ":src",
+    "StreamingHistory.json"
+  ],
+  entry_point = "mono/projects/spotify-visualizer/main"
+)

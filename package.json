@@ -5,22 +5,29 @@
   "repository": "https://github.com/coltonmorris/mono",
   "author": "colton <colton.morris@tcnbroadcasting.com>",
   "license": "MIT",
+  "dependencies": {
+    "@ngrx/store": "6.1.0",
+    "d3": "^5.7.0",
+    "lodash": "^4.17.11",
+    "rxjs": "6.3.2",
+    "systemjs": "0.21.5",
+    "tslib": "1.9.3",
+    "zone.js": "0.8.26"
+  },
   "devDependencies": {
     "@angular/compiler": "6.1.8",
     "@angular/compiler-cli": "6.1.8",
     "@angular/core": "6.1.8",
+    "@bazel/benchmark-runner": "0.1.0",
     "@bazel/ibazel": "0.5.0",
     "@bazel/typescript": "0.17.0",
-    "@types/google-protobuf": "^3.2.7",
+    "@types/d3": "^5.0.0",
     "@types/jasmine": "2.8.8",
+    "@types/lodash": "^4.14.116",
     "@types/node": "6.0.117",
-    "ts-protoc-gen": "^0.7.3",
-    "typescript": "2.9.2"
-  },
-  "dependencies": {
-    "@ngrx/store": "6.1.0",
-    "rxjs": "6.3.2",
-    "systemjs": "0.21.5",
-    "tslib": "1.9.3"
+    "clang-format": "1.2.4",
+    "husky": "0.14.3",
+    "protractor": "5.4.1",
+    "typescript": "3.0.1"
   }
 }
