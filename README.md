@@ -6,4 +6,4 @@
 + Bring in projects I've made
 
 ## TODO
-+ use a single tsconfig at the root
++ Should not need a package.json

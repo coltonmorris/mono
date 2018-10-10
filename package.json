@@ -7,11 +7,16 @@
   "license": "MIT",
   "dependencies": {
     "@ngrx/store": "6.1.0",
+    "async": "^2.6.1",
+    "bluebird": "^3.5.2",
     "d3": "^5.7.0",
+    "fs": "^0.0.1-security",
+    "google-spreadsheet": "^2.0.6",
     "lodash": "^4.17.11",
     "rxjs": "6.3.2",
     "systemjs": "0.21.5",
     "tslib": "1.9.3",
+    "xmldoc": "^1.1.2",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
@@ -20,7 +25,7 @@
     "@angular/core": "6.1.8",
     "@bazel/benchmark-runner": "0.1.0",
     "@bazel/ibazel": "0.5.0",
-    "@bazel/typescript": "0.17.0",
+    "@bazel/typescript": "0.20.2",
     "@types/d3": "^5.0.0",
     "@types/jasmine": "2.8.8",
     "@types/lodash": "^4.14.116",
@@ -28,6 +33,6 @@
     "clang-format": "1.2.4",
     "husky": "0.14.3",
     "protractor": "5.4.1",
-    "typescript": "3.0.1"
+    "typescript": "3.1.2"
   }
 }

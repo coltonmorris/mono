@@ -1,16 +1,38 @@
 {
-    "compilerOptions": {
-        "lib": [
-            "dom",
-            "es5",
-            "es2015.collection",
-            "es2015.iterable",
-            "es2015.promise"
-        ],
-        "rootDirs": [
-            ".",
-            "dist/bin/src"
-        ],
-        "experimentalDecorators": true
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build/dist",
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "es2016",
+      "es6",
+      "dom",
+      "es5"
+    ],
+    "experimentalDecorators": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": true,
+    "paths": {
+        "mono/*": [
+          "*"
+        ]
     }
+  },
+  "include": [
+    "projects/grpc-web/frontend/src/**/*.ts*",
+    "projects/spotify-visualizer/**/*.ts*",
+    "node_modules/ngrx/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }
