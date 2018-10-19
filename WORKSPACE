@@ -108,12 +108,21 @@ load("@angular//:index.bzl", "ng_setup_workspace")
 
 ng_setup_workspace()
 
+# git_repository(
+local_repository(
+  name = "ts_protoc_gen",
+#   # remote = "https://github.com/improbable-eng/ts-protoc-gen",
+#   # commit = "53aa49ccb3fa7832934ff1cbf86ec62df1cde4cd",
+  # path = "../../improbable-eng/ts-protoc-gen",
+  path = "../ts-protoc-gen",
+)
+
 ## Gorules
 go_repository(
   name = "com_github_gocolly_colly",
   commit = "6a6c7848ba3d0690ed9b77a68626f3e0e45493f3",
   importpath = "github.com/gocolly/colly",
-  )
+)
 
 go_repository(
   name = "org_golang_google_appengine",

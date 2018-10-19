@@ -6,7 +6,7 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 
 ts_library(
   name = "src",
-  node_modules = "//:node_modules",
+  node_modules = "@npm//:node_modules",
   tsconfig = "//:tsconfig.json",
   srcs = glob([
     "**/*.ts*",
@@ -19,10 +19,10 @@ ts_library(
 
 nodejs_binary(
   name = "run",
-  node_modules = "//:node_modules",
   data = [
     ":src",
-    "StreamingHistory.json"
+    "StreamingHistory.json",
+    "@npm//d3",
   ],
   entry_point = "mono/projects/spotify-visualizer/main"
 )
