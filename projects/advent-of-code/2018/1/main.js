@@ -1,7 +1,7 @@
 var fs = require('fs')
 
 
-var data = fs.readFileSync( './input.txt', 'ascii', function(err, data) {
+var data = fs.readFileSync( './third_input.txt', 'ascii', function(err, data) {
   return data
 }).trim().split('\n')
 
