@@ -1,0 +1,38 @@
+namespace LMS;
+
+// union AnyPayload {StringValue, NumberValue, BoolValue, Phone, Currency, DataEnrichedValue, RecordFieldMap, PostalCode, Email, Date, Time, Timestamp, RepeatedRecordFields, Error}
+union AnyPayload {StringValue, NumberValue, Phone}
+
+table List {
+    list_id:string;
+    org_id:string;
+    region_id:string;
+
+    name:string;
+    deleted:bool = false;
+    labels:[string];
+}
+
+table Record {
+    fields:[RecordField];
+}
+
+table RecordField {
+    name:string;
+    paylod:AnyPayload;
+}
+       
+table StringValue {
+    value:string;
+}
+table NumberValue {
+    value:double;
+}
+table Phone {
+    number:string (deprecated);
+    area_code:string (deprecated);
+}
+
+// ...
+
+root_type Record;
