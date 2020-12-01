@@ -1,0 +1,12 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary", "nodejs_test")
+
+nodejs_binary(
+  name = "1",
+  data = [
+    "input.txt",
+    "second_input.txt",
+    "third_input.txt",
+  ],
+  entry_point = "main.js",
+)
+
