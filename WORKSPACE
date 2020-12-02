@@ -46,7 +46,12 @@ yarn_install(
 load("@npm//@bazel/labs:package.bzl", "npm_bazel_labs_dependencies")
 
 npm_bazel_labs_dependencies()
-       
+
+
+#########
+# PROTO #
+#########
+
 load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
 
 rules_proto_dependencies()
@@ -79,16 +84,9 @@ http_archive(
     "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.22.2/bazel-gazelle-v0.22.2.tar.gz",
   ],
 )
-
-load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
+       
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
-       
-go_rules_dependencies()
 
-go_register_toolchains()
-       
-gazelle_dependencies()
-       
 ## Gorules
 go_repository(
   name = "com_github_gocolly_colly",
@@ -196,3 +194,12 @@ go_repository(
   sum = "h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=",
   version = "v0.3.2",
 )
+       
+
+load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
+
+go_rules_dependencies()
+
+go_register_toolchains()
+
+gazelle_dependencies()
