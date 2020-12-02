@@ -1,17 +1,12 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
-
-
-npm_dependencies = [
-  "@npm//fs",
-]
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
 nodejs_binary(
-  name = "1",
-  data = [
-    "main.js",
-    "input.txt",
-  ] + npm_dependencies,
-  entry_point = "mono/projects/advent-of-code/2017/1/main.js"
+    name = "1",
+    data = [
+        "input.txt",
+        "main.js",
+    ],
+    entry_point = "main.js",
 )

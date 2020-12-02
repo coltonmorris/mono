@@ -1,7 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
-
+load("@npm//@bazel/typescript:index.bzl", "ts_devserver", "ts_library", "ts_project")
 
 exports_files(
     [
@@ -12,11 +11,15 @@ exports_files(
 )
 
 ts_library(
-  name = "build",
-  node_modules = "@deps//:node_modules",
-  srcs = glob([
-    "src/**/*.ts*",
-  ]),
-  deps = [],
-  tsconfig = ":tsconfig.json",
+    name = "build",
+    srcs = glob([
+        "src/**/*.ts*",
+    ]),
+    node_modules = "@npm//:node_modules",
+    tsconfig = ":tsconfig.json",
+    deps = [
+        "@npm//@types/google-protobuf",
+        "@npm//google-protobuf",
+        "@npm//grpc-web-client",
+    ],
 )

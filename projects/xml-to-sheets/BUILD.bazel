@@ -1,23 +1,14 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
-
-
-npm_dependencies = [
-  "@npm//xmldoc",
-  "@npm//google-spreadsheet",
-  "@npm//async",
-  "@npm//bluebird",
-  "@npm//fs",
-]
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
 nodejs_binary(
-  name = "xml-to-sheets",
-  # node_modules = "@npm//:node_modules",
-  data = [
-    "main.js",
-    "input.xml",
-    "output.csv",
-  ] + npm_dependencies,
-  entry_point = "mono/projects/xml-to-sheets/main.js"
+    name = "xml-to-sheets",
+    node_modules = "@npm//:node_modules",
+    data = [
+        "input.xml",
+        "main.js",
+        "output.csv",
+    ],
+    entry_point = "main.js",
 )

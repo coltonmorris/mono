@@ -2,11 +2,11 @@ package(default_visibility = ["//visibility:public"])
 
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
+#gazelle:prefix github.com/coltonmorris/mono
 gazelle(
     name = "gazelle",
     prefix = "github.com/coltonmorris/mono",
 )
-
 
 genrule(
     name = "placeholder",
@@ -16,13 +16,13 @@ genrule(
 )
 
 exports_files(
-  [
-    "tsconfig.json",
-    "package.json",
-    "yarn.lock",
-    # Let devserver and testing targets reference systemjs & zone.js distros
-    # "node_modules/systemjs/dist/system.js",
-    # "node_modules/zone.js/dist/zone.min.js",
-    # "node_modules/zone.js/dist/zone-testing-bundle.js",
-  ],
+    [
+        "tsconfig.json",
+        "package.json",
+        "yarn.lock",
+        # Let devserver and testing targets reference systemjs & zone.js distros
+        # "node_modules/systemjs/dist/system.js",
+        # "node_modules/zone.js/dist/zone.min.js",
+        # "node_modules/zone.js/dist/zone-testing-bundle.js",
+    ],
 )

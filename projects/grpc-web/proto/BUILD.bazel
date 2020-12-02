@@ -2,7 +2,8 @@ package(default_visibility = ["//visibility:public"])
 
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
-load("@ts_protoc_gen//:defs.bzl", "typescript_proto_library")
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@npm//@bazel/labs:index.bzl", "ts_proto_library")
 
 proto_library(
     name = "examplecom_library_proto",
@@ -13,25 +14,16 @@ go_proto_library(
     name = "examplecom_library_go_proto",
     compilers = ["@io_bazel_rules_go//proto:go_grpc"],
     importpath = "github.com/coltonmorris/mono/projects/grpc-web/proto",
-    proto = ":proto_proto",
+    proto = ":examplecom_library_proto",
 )
 
 go_library(
-    name = "go_default_library",
+    name = "proto",
     embed = [":examplecom_library_go_proto"],
     importpath = "github.com/coltonmorris/mono/projects/grpc-web/proto",
 )
 
-proto_library(
-    name = "proto_proto",
-    srcs = ["book_service.proto"],
-)
-
-typescript_proto_library(
+ts_proto_library(
     name = "ts_proto",
-    proto = ":proto_proto",
-    remove_dependencies = [
-        "google_api_annotations_pb",
-        # "options_pb",
-    ],
+    proto = ":examplecom_library_proto",
 )

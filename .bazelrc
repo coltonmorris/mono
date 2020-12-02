@@ -6,6 +6,9 @@
 # Instead, you should run `bazel info bazel-bin` to find out where the outputs went.
 build --symlink_prefix=dist/
 
+# This is so we understand failures better
+build --verbose_failures
+
 # By default, failing tests don't print any output, it's logged to a file instead
 test --test_output=errors
 
@@ -18,3 +21,8 @@ build --strategy=TypeScriptCompile=worker --strategy=AngularTemplateCompile=work
 # A more useful default output mode for bazel query, which
 # prints "ng_module rule //foo:bar" instead of just "//foo:bar".
 query --output=label_kind
+       
+       
+# TODO remove
+# build --spawn_strategy=standalone --genrule_strategy=standalone
+# test --test_strategy=standalone

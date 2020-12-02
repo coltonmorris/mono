@@ -1,2 +1,4 @@
 # Notes
-Make sure `@types/node` is installed: https://github.com/aws/aws-sdk-js/issues/1271
+- Need to spend some time re-organizing the protos and golang deps with the new bazel version
+  * dont need to use a script to copy proto files over
+  * use the root node_modules instead and have an inner tsconfig
