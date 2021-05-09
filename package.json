@@ -16,7 +16,7 @@
     "google-spreadsheet": "^2.0.6",
     "grpc-web": "^1.2.1",
     "grpc-web-client": "^0.7.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "rxjs": "^6.6.3",
     "systemjs": "0.21.5",
     "tslib": "1.9.3",
