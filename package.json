@@ -8,7 +8,7 @@
   "dependencies": {
     "@bazel/ibazel": "^0.14.0",
     "@ngrx/store": "6.1.0",
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "bluebird": "^3.5.2",
     "d3": "^5.7.0",
     "fs": "^0.0.1-security",
