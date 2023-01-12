@@ -13,6 +13,6 @@
     "axios": "^0.18.0",
     "firstline": "^2.0.2",
     "json2csv": "^4.1.5",
-    "papaparse": "^4.5.0"
+    "papaparse": "^5.2.0"
   }
 }
